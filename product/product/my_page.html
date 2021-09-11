@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{%block content%}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>my_page</title>
+    <a style="background-color:red;"href="http://127.0.0.1:8000/admin/product/product1/add/">add product</a> -->
+</head>
+<body class="back">
+    {% if user.is_authenticated %}
+      <form method="POST"enctype="multipart/form-data"action="{% url 'product_post' %}"><br>
+        {% csrf_token %}
+      <!-- <p>{{x.UserName}}</p> -->
+      <div class="divconfig1">
+        <h1>fruits:</h1>
+        {%for x in products.all%}
+        <ul>
+        <button id="border">
+        <div class="divconfig2"><img style="height:80px;width:80px"src="{{x.pic.url }}"alt="icon"><br>
+          <h2>{{x.title}}</h2><br>
+          <p>size:{{x.size}}</p><br>
+          <p>caption:{{x.body|safe}}</p><br>
+          <p>price:{{x.price}}</p><br>
+          <p>cdate:{{x.cdate}}</p><br>
+        </div>
+        </button><br><br>
+      </ul>
+      {%endfor%}
+      </div>
+    </form><br>
+    {%endif%}
+    <!-- <form class="form2"method="POST"enctype="multipart/form-data"action="{% url 'product_post' %}"><br>
+    {% csrf_token %}
+    <div class="divconfig3">
+      <h3>vegtables:</h3>
+      {%for y in products2.all%}
+      <ul>
+      <button id="border">
+      <div class="divconfig2"><img style="height:80px;width:80px"src="{{y.pic.url }}"alt="icon"><br>
+        <h2>{{y.title}}</h2><br>
+        <p>size:{{y.size}}</p><br>
+        <p>caption:{{y.body|safe}}</p><br>
+        <p>price:{{y.price}}</p><br>
+      </div>
+      </button><br><br>
+    </ul>
+    {%endfor%}
+    </div>
+    </form> -->
+</body>
+
+<style>
+.back{
+  background-color:#1111111;
+}
+.divconfig1{
+    background-color:#cc0000;
+    width: 100p%;
+    height: 100p%;
+    position: absolute ;
+    right: 0;
+    left: 0;
+    text-align: center;
+    display:flex;
+}
+.divconfig2{
+    padding-right: 30px;
+    padding-left: 50px;
+
+}
+#border{
+    display: inline-flex;
+}
+.form2{
+  padding-top: 370px;
+}
+.divconfig3{
+  background-color:green;
+  width: 100p%;
+  height: 100p%;
+  position: absolute ;
+  right: 0;
+  left: 0;
+  text-align: center;
+  display:flex;
+}
+
+</style>
+
+<body>
+</body>
+
+</html>
+{%endblock%}

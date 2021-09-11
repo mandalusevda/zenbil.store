@@ -1,0 +1,40 @@
+{% block content %}
+<style>
+#divconfig1{
+    background-image:url("/static/landing-background.png");
+    width: 100p%;
+    height: 700px;
+    text-align: center;
+}
+</style>
+{% if error %}
+{{ error }}
+{% endif %}
+
+<center id="divconfig1">
+<h4>add your product<br />we appreciate your choice</h4>
+<form method="POST" action="{% url 'product_detail' %}" enctype="multipart/form-data">
+{% csrf_token %}
+<br />
+<h5>title:</h5>
+<input type="text" name="title" />
+<br/>
+<h5>body:</h5>
+<input type="text" name="body" />
+<br/>
+<h5>size:</h5>
+<input type="number" name="size" />
+<br/>
+<h5>price:</h5>
+<input type="number" name="price" />
+<br />
+<h5>pic:</h5>
+<input type="file" accept=".jpg"name="pic" />
+<br/>
+<h5>cdate:</h5>
+<input type="time" name="time" />
+<br/>
+<input class="btn btn-primary" type="submit" value="add" href="{% url 'product_post' %}" />
+</form>
+</center>
+{% endblock %}

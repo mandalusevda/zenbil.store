@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myProfile</title>
+    <!-- <link rel="stylesheet" href="/thesite.css"> -->
+
+</head>
+<style>
+/* Navbar container */
+.navbar {
+   overflow: hidden;
+   background-color: #cc0000;
+   font-family: Arial;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
+   height:80px;
+   /* position: fixed;
+    display: flex;
+   text-decoration: none; */
+   position: fixed;
+   top: 0px;
+   left: 0px;
+ }
+ /* Links inside the navbar */
+ /* .navbar a {
+   float: right;
+   font-size: 16px;
+   color: white;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+ } */
+
+ #item{
+   float: right;
+   text-align: center;
+   /* padding: 14px ; */
+   text-decoration: none;
+   height: 20px;
+   width: 70px;
+  /* font-size: 16px; */
+  margin-left: 10px;
+  margin-right: 40px;
+  margin-top: 4px;
+ }
+
+ /* The dropdown container */
+ .dropdown {
+   overflow: hidden;
+   font-weight: 400;
+   font-size: 16px;
+   border: none;
+   outline: none;
+   background-color: inherit;
+   font-family: inherit; /* Important for vertical align on mobile phones */
+   margin: 0; /* Important for vertical align on mobile phones */
+   /* margin-right: 24px; */
+    /* cursor: pointer; */
+    /* margin-left: 20px; */
+}
+
+ /* Add a red background color to navbar links on hover */
+ .navbar a:hover, .dropdown:hover .dropbtn {
+   background-color: red;
+ }
+
+ /* Dropdown content (hidden by default) */
+ .dropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #f9f9f9;
+   min-width: 160px;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   z-index: 1;
+   border-bottom: 2px solid rgb(170, 210, 54);
+   /* padding: 20px; */
+    /* width: 150px; */
+ }
+
+ /* Links inside the dropdown */
+ .dropdown-content a {
+   display: block;
+   float: none;
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   text-align: left;
+   /* padding: 4px; */
+ }
+
+ /* Add a grey background color to dropdown links on hover */
+ .dropdown-content a:hover {
+   background-color:red;
+   /* background-color: #ddd; */
+ }
+
+ /* Show the dropdown menu on hover */
+ .dropdown:hover .dropdown-content {
+   display: block;
+ }
+.divmain{
+
+}
+.divhead{
+
+}
+#divconfig1{
+    background-image:url("./static/landing-background.png");
+    width: 100p%;
+    height: 900px;
+    text-align: center;
+}
+#divconfig2{
+    width: 100p%;
+    height: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+#divconfig3{
+    background-color:#cc0000;
+    width: 100p%;
+    height: 900px;
+    position: absolute ;
+    right: 0;
+    left: 0;
+    text-align: center;
+}
+#divconfig3-f{
+    text-align: center;
+}
+#divconfig3-m{
+    display: flex;
+    flex-direction: row;
+    flex-shrink: initial;
+    padding-right: 30px;
+    padding-left: 50px;
+}
+
+#divconfig3-m > div{
+    flex-wrap: wrap;
+}
+#step-1{
+    background-color: aqua;
+}
+#step-2{
+    background-color: darkviolet;
+}
+#step-3{
+    background-color: aqua;
+}
+#step-4{
+    background-color: darkviolet;
+}
+fa, .far, .fas {
+    font-family: "Font Awesome 5 Free";
+}
+#cam{
+    border-radius: 50%;
+    height:80px;
+    width:80px;
+}
+#border{
+    background-color: lightsalmon;
+    border-radius: 100%;
+}
+</style>
+
+<body style="overflow-y: scroll">
+    <header class="divhead">
+      <nav class="navbar">
+          {% comment %} <img style="height:30px"src="https://mobirise.com/extensions/organicamp/assets/images/logo1.jpg" alt="icon"> {% endcomment %}
+          <div id="item"class="dropdown">
+            <button style="background-color: black;color: #ffffff;width: 100px;border-radius: 30px;">Dropdown<i class="fa fa-caret-down"></i></button>
+            <div class="dropdown-content">
+              <a href="#">new product</a>
+              <a href="#">recent product</a>
+            </div>
+          </div>
+        </div>
+            <button id="item"style="background-color: red;color: #ffffff;border-radius: 30px;">Basket</button>
+            <button id="item"style="background-color: red;color: #ffffff;width: 100px;border-radius: 30px;"><a href="{% url 'product_create' %}">Buy Now</button>
+            <button id="item"style="background-color:greenyellow"><a href="{% url 'login' %}">login</a></button>
+            <button id="item"style="background-color:greenyellow"><a href="{% url 'signup' %}">signup</a></button>
+            <button id="item"style="background-color: blue;color: #ffffff;width: 100px;border-radius: 30px;"><a href="http://127.0.0.1:8000/admin/login/?next=/admin/">admin</a></button>
+        </div>
+      </nav>
+    </header>
+    <main class="divmain">
+      <div id="divconfig1">
+          <h1 style="position: relative;top: 100px;font-size:50px;">ZEnbiLL_Store_WebsiTE <br></h1>
+          <p style="position: relative;top: 100px;size:50px;">first chain store of nutrition fresh fruits in IRAN ;it is the source of the development of fruits and vegetables which is relative to iran agreeculture products,For your health and money saving.
+          we're transfering across iran country <brاولین فروشگاه زنجیره ای میوه و سبزیجات تازه در ایران وابسته به محصولات کشاورزی کشور که به سراسر کشور صادر میشود</p>
+      </div>
+        <div id="divconfig2">
+            <div id="step-1"><img style="height:80px;width:80px;"src="{% static 'index.png' %}"alt="icon"><br><h1>step 01.</h1><br><p>Vegetables are an integral part of the human diet. They are extremely useful because of the high content of carbohydrates, various acids, vitamins and active elements in the form, easy for digestion.</p></div>
+            <div id="step-2"><img style="height:80px;width:80px;"src="{% static 'index2.png' %}"alt="icon"><br><h1>step 02.</h1><br><p>Fresh tomatoes are ideal for replenishing the loss of minerals. These vegetables contain a lot of acids that our body needs for full-fledged work.</p></div>
+            <div id="step-3"><img style="height:80px;width:80px;"src="{% static 'canvas.png' %}"alt="icon"><br><h1>step 03.</h1><br><p>In the content of vitamin C, sweet peppers are superior to lemons and even black currants! The greatest amount of vitamin is contained around the stalk, that is, in the part of the product that is usually cut during cleaning.</p></div>
+            <div id="step-4"><img style="height:80px;width:80px;"src="{% static 'canvas2.png' %}"alt="icon"><br><h1>step 04.</h1><br><p>If you sometimes eat hot chili peppers, this will help normalize cerebral circulation, ease the condition with bronchial asthma, cough, sore throat, flu.</p></div>
+        </div>
+        <div id="divconfig3">
+            <div id="divconfig3-f">
+                <h1>Fresh Food</h1><br><h2>Our Vegan Store!</h2><br><p>Radish contains a lot of fiber, pectin and mineral salts</p>
+            </div>
+            <div id="divconfig3-m">
+                <div><button id="border"><img id="cam"src="{% static 'camera.png' %}"></button><br><h1>Fresh Vegetables</h1><br><p>Use for cooking several types of vegetable oil.</p></div>
+                <div><button id="border"><img id="cam"src="{% static 'camera.png' %}"></button><br><h1>High Quality</h1><br><p>This is the best source of essential fatty acids for the body.</p></div>
+                <div><button id="border"><img id="cam"src="{% static 'camera.png' %}"></button><br><h1>Sale</h1><br><p>It is very good, if in the kitchen there will always be several bottles with different oils.</p></div>
+                <div><button id="border"><img id="cam"src="{% static 'camera.png' %}"></button><br><h1>Best Price.</h1><br><p>Remember that unrefined oils are not suitable for heat treatment.</p></div>
+            </div>
+            <a href="table.html">customer_table</a>
+        </div>
+      </main>
+    </body>
+    <!-- <style>
+    #wpadminbar{
+    background: #ff0000 !important;
+    }
+    </style>
+    <style type="text/css" id="custom-background-css">
+    body.custom-background { background-color: #ffffff; }
+    </style> -->
+
+    <!-- img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important; -->
+
+  <!-- <script type="text/javascript">
+  function fun(){
+    document.getElementryById(item);
+    if (x.display==="none"){
+      X.style.display="block";}
+    else :{
+      X.style.display="none";}}
+  </script> -->
+
+</html>
